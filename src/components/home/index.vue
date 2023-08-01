@@ -6,5 +6,8 @@
 export default {};
 </script>
 
-<style>
+<style lang="scss" scoped>
+div {
+  color: $helpColor;
+}
 </style>
