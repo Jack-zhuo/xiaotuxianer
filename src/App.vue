@@ -1,10 +1,8 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "@/components/HelloWorld.vue";
 </script>
 
 <template>
-  <el-button type="primary">anniu</el-button>
+  <router-view></router-view>
 </template>
 
 <style scoped>

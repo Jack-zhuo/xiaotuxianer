@@ -8,9 +8,9 @@ import router from './router'
 
 import { getCategory } from './apis/testAPI'
 
-getCategory().then((res) => {
-    console.log(res)
-})
+// getCategory().then((res) => {
+//     console.log(res)
+// })
 
 const app = createApp(App)
 
