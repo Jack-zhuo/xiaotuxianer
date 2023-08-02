@@ -1,5 +1,5 @@
 <template>
-  <div>hone页</div>
+  <div style="height: 1200px">hone页</div>
 </template>
 
 <script>
