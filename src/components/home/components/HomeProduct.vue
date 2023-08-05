@@ -7,7 +7,6 @@ import GoodsItem from "./GoodsItem.vue";
 const goodsProduct = ref([]);
 const getGoods = async () => {
   const res = await getGoodsAPI();
-  console.log("冬天不是死亡", res);
   goodsProduct.value = res.data.result;
 };
 
