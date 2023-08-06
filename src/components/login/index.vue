@@ -1,16 +1,21 @@
 <script setup>
 import { ref } from "vue";
+import "element-plus/es/components/message/style/css";
+import { ElMessage } from "element-plus";
+import { useRouter } from "vue-router";
+import { useUserStore } from "@/stores/user.js";
 
+const userStore = useUserStore();
 const form = ref({
-  account: "",
-  password: "",
-  agree: false,
+  account: "xiaotuxian001",
+  password: "123456",
+  agree: true,
 });
 const rules = {
   account: [{ required: true, message: "用户名不能为空", trigger: "blur" }],
   password: [
     { required: true, message: "密码不能为空", trigger: "blur" },
-    { min: 4, max: 14, message: "密码长度为4~16位字符", trigger: "blur" },
+    { min: 6, max: 14, message: "密码长度为4~16位字符", trigger: "blur" },
   ],
   agree: [
     {
@@ -22,10 +27,17 @@ const rules = {
   ],
 };
 const formVal = ref(null);
+const router = useRouter();
 const doLogin = () => {
-  formVal.value.validate((val) => {
+  formVal.value.validate(async (val) => {
     if (val) {
-      // 执行登录逻辑
+      // 执行登录逻辑;
+      await userStore.getUserInfo(form.value);
+      ElMessage({
+        message: "登陆成功",
+        type: "success",
+      });
+      router.replace({ path: "/" });
     }
   });
 };

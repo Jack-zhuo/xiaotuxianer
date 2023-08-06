@@ -10,7 +10,7 @@ const route = useRoute();
 const goodDetail = ref({});
 const getGood = async () => {
   const res = await getGoodAPI(route.params.id);
-  goodDetail.value = res.data.result;
+  goodDetail.value = res.result;
 };
 onMounted(() => getGood());
 

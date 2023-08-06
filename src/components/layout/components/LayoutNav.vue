@@ -1,19 +1,34 @@
 <script setup>
+import { useUserStore } from "@/stores/user.js";
+import { useRouter } from "vue-router";
+const { userInfo, clearUserInfo } = useUserStore();
+const router = useRouter();
+
+const confirm = () => {
+  clearUserInfo();
+  gotoLogin();
+};
+const gotoLogin = () => {
+  router.push("/login");
+};
 </script>
 
 <template>
   <nav class="app-topnav">
     <div class="container">
       <ul>
-        <template v-if="false">
+        <template v-if="userInfo.token">
           <li>
-            <a href="javascript:;"><i class="iconfont icon-user"></i>周杰伦</a>
+            <a href="javascript:;"
+              ><i class="iconfont icon-user"></i>{{ userInfo.account }}</a
+            >
           </li>
           <li>
             <el-popconfirm
               title="确认退出吗?"
               confirm-button-text="确认"
               cancel-button-text="取消"
+              @confirm="confirm"
             >
               <template #reference>
                 <a href="javascript:;">退出登录</a>
@@ -25,7 +40,7 @@
         </template>
         <template v-else>
           <li>
-            <a href="javascript:;" @click="$router.push('/login')">请先登录</a>
+            <a href="javascript:;" @click="gotoLogin">请先登录</a>
           </li>
           <li>
             <router-link to="/login">请先登录</router-link>

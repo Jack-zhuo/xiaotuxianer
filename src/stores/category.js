@@ -7,8 +7,9 @@ export const useCategoryStore = defineStore('category', () => {
     const categoryList = ref([]);
     const getCategory = async () => {
         const res = await getCategoryAPI();
-        if (res.status !== 200) return alert("请求数据失败");
-        categoryList.value = res.data.result;
+
+        if (res.msg !== '操作成功') return alert("请求数据失败");
+        categoryList.value = res.result;
     };
 
     return {
