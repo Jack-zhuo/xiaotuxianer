@@ -1,4 +1,5 @@
 <script setup>
+import HearderCart from "./HearderCart.vue";
 import { useCategoryStore } from "@/stores/category.js";
 const category = useCategoryStore();
 </script>
@@ -24,6 +25,7 @@ const category = useCategoryStore();
         <input type="text" placeholder="搜一搜" />
       </div>
       <!-- 头部购物车 -->
+      <hearder-cart></hearder-cart>
     </div>
   </header>
 </template>

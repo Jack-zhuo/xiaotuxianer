@@ -23,7 +23,7 @@ const fetchHotGoods = async () => {
     id: route.params.id,
     type: props.hotType,
   });
-  goodsList.value = res.data.result;
+  goodsList.value = res.result;
 };
 onMounted(() => fetchHotGoods());
 </script>
