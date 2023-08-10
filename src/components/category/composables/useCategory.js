@@ -5,9 +5,8 @@ export const useCategory = () => {
     const route = useRoute();
     const categoryList = ref({});
     const getCategory = async (id = route.params.id) => {
-        console.log("ceshi", id)
         const res = await getCategoryAPI(id);
-        categoryList.value = res.data.result;
+        categoryList.value = res.result;
     };
     onBeforeRouteUpdate((to) => {
         getCategory(to.params.id);
